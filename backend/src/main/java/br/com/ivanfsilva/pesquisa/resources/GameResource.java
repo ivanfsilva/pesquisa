@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping(value = "/games")
 public class GameResource {
 
+    private final GameService service;
+
     @Autowired
-    private GameService service;
+    public GameResource(GameService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public ResponseEntity<List<GameDTO>> findAll() {

@@ -13,8 +13,12 @@ import java.util.stream.Collectors;
 @Service
 public class GameService {
 
-    @Autowired
     private GameRepository repository;
+
+    @Autowired
+    public GameService(GameRepository repository) {
+        this.repository = repository;
+    }
 
     @Transactional(readOnly = true)
     public List<GameDTO> findAll() {
